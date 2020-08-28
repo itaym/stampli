@@ -3,7 +3,11 @@
     flex: 1;
     width: 100%;
     flex-direction: column;
-    margin: 10px;
+
+}
+.grid * {
+    font-size: 18px;
+    border-radius: 5px;
 }
 
 .grid table {
@@ -12,4 +16,20 @@
 
 .grid th, .grid td {
     padding: 10px;
+    border-radius: 0;
+}
+
+.grid input, .grid select {
+    padding: 4px;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    width: 160px;
+}
+.grid input[type=radio],
+.grid input[type=checkbox] {
+    width: auto;
+    zoom: 1.2;
+}
+.grid h4 {
+    text-decoration: overline;
 }

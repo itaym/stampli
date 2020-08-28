@@ -18,7 +18,6 @@ function DataSource (props) {
     }
     return (
         <div className='data-source'>
-            <label>Input:</label>
             <textarea onChange={onChange} rows={15} value={value} />
         </div>
     )

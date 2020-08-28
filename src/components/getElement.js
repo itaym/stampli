@@ -5,7 +5,6 @@ function getRadioButton(element, onChange, key) {
     const values = (data || '').split('|')
     return (
         <fieldset key={key}>
-            <label>{label}</label><br />
             {values.map((value, index) => {
                 return (
                     <span  key={`${value}`}>
@@ -15,18 +14,18 @@ function getRadioButton(element, onChange, key) {
                            checked={index === checkedIndex}
                            type={'radio'}
                            name='radio-group' />
-                    <label htmlFor={value}>{value}</label><br />
+                    <label htmlFor={value}>{value}</label>
                     </span>)
             })}
+            <h4>{label}</h4>
         </fieldset>)
 }
 function getTextInput(element, onChange, key) {
     const { data, label } = element
     return (
         <span key={key}>
-            <label>{label}</label>
-            <br />
             <input type={'text'} value={data} onChange={onChange} />
+             <h4>{label}</h4>
         </span>)
 }
 function getSelect(element, onChange, key) {
@@ -34,8 +33,6 @@ function getSelect(element, onChange, key) {
     const values =  (data || '').split('|')
     return (
         <span key={key}>
-            <label>{label}</label>
-            <br />
             <select
                 value={selectedIndex}
                 onChange={onChange}>
@@ -45,15 +42,15 @@ function getSelect(element, onChange, key) {
                         value={value}>{value}</option>)
                 })}
             </select>
+             <h4>{label}</h4>
         </span>)
 }
 function getCheckBox(element, onChange, key) {
     const { data, label } = element
     return (
         <span key={key}>
-             <label>{label}</label>
-            <br />
             <input type={'checkbox'} checked={data==='true'} onChange={onChange} />
+            <h4>{label}</h4>
         </span>)
 }
 

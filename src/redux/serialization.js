@@ -11,6 +11,8 @@ function serialize (rowData) {
 
     try {
         const arrData = rowData.split('\n')
+        let minLine = Number.MAX_SAFE_INTEGER
+        let maxLine = Number.MIN_SAFE_INTEGER
         let minColumn = Number.MAX_SAFE_INTEGER
         let maxColumn = Number.MIN_SAFE_INTEGER
 
@@ -20,6 +22,8 @@ function serialize (rowData) {
             let row = parseInt(tmpArray[DATA_ENUM.LINE_NO].toString().trim())
             let col = parseInt(tmpArray[DATA_ENUM.COLUMN_NO].toString().trim())
 
+            if (maxLine < row) maxLine = row
+            if (minLine > row) minLine = row
             if (maxColumn < col) maxColumn = col
             if (minColumn > col) minColumn = col
 
@@ -36,7 +40,10 @@ function serialize (rowData) {
                     undefined,
             }
         })
-        for (let line in objData) {
+        for (let line = minLine; line <= maxLine; line++) {
+            if (!objData[line]) {
+                objData[line] = {}
+            }
             for (let emptyCol = minColumn; emptyCol <= maxColumn; emptyCol++) {
                 if (!objData[line][emptyCol]) {
                     objData[line][emptyCol] = {}

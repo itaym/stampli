@@ -4,3 +4,11 @@
     flex-direction: column;
     margin: 10px;
 }
+
+textarea {
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 18px;
+    padding: 10px;
+}
