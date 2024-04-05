@@ -1,7 +1,7 @@
 import { serialize, deserialize } from './serialization'
 import { GET_ROW_DATA, GET_DATA } from "./actions"
 
-export default (state, action) => {
+const reducers =  function (state, action) {
 
     switch (action.type) {
         case GET_ROW_DATA :
@@ -21,3 +21,4 @@ export default (state, action) => {
             };
     }
 }
+export default reducers
